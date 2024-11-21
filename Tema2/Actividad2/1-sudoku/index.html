@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <title>Ejercicio</title>
+</head>
+
+<body class="bg-gradient-to-r from-blue-400 to-purple-500 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg">
+        <p class="text-center text-2xl font-bold mb-4">Comprobador de sudokus</p>
+        <table id="sudokuTable" class="border-collapse border border-black mx-auto mb-4">
+        </table>
+        <button type="button" onclick="comprobarSudoku()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4
+        rounded mx-auto block">
+            Comprobar solución</button>
+    </div>
+</body>
+
+</html>

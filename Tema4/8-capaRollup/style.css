@@ -1,0 +1,16 @@
+.capa {
+  padding: 20px;
+  background-color: #c2c2c200;
+  border: 1px solid #c2c2c2;
+  border-radius: 15px;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

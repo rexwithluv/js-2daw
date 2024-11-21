@@ -1,0 +1,6 @@
+Crear un programa que dibuje en pantalla el tablero del juego Guerra de barcos
+(también como Hundir la flota gracias a un producto comercial).
+
+Tiene que dibujar aleatoriamente en el tablero un barco de tamaño cuatro
+(portaviones), tres tamaño tres (acorazados), tres de tamaño dos (destructores)
+y dos de tamaño uno (fragatas).

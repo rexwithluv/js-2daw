@@ -1,0 +1,44 @@
+Realiza un programa que lea una secuencia de notas (con valores que van de 0 a 10, sin decimales).
+
+Se leerá una nota por línea.
+
+La entrada acabará con el valor -1. El programa debe mostrar por salida estándar "SI", si hay algún 10, "NO" en caso contrario.
+
+Por ejemplo:
+Entrada	Resultado
+
+1
+4
+6
+10
+5
+2
+2
+10
+3
+-1
+
+SI
+
+
+5
+5
+5
+5
+-1
+
+NO
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+-1
+
+NO

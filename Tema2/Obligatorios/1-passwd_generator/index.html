@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boltcss/bolt.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Passwd Generator</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="centered-box">
+            <h1>Generador de contraseñas</h1>
+            <input id="lengthPasswd" type="number" size="1" min="8" max="64" value="8">
+            <button type="button" onclick="mostrarPasswd()">Generar contraseña</button>
+            <hr>
+            <h5>Contraseña creada:</h5>
+            <span id="passwd" class="code"></span>
+        </div>
+    </div>
+
+</body>
+
+</html>

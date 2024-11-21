@@ -1,0 +1,22 @@
+.centered-box {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#botones{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}

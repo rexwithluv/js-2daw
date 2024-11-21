@@ -1,0 +1,26 @@
+Enunciado de la pregunta
+
+Realiza un programa que lea un número N y muestre por la salida estándar todos los pares desde 2 hasta N (inclusive).
+
+Cada número se mostrará en una línea distinta.
+
+N siempre será mayor o igual a 2.
+
+Por ejemplo:
+
+Entrada	Resultado
+
+4       2
+
+		4
+
+5		2
+
+		4
+
+6		2
+
+		4
+
+		6
+

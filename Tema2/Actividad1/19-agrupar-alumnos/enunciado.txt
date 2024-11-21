@@ -1,0 +1,21 @@
+• Crea una aplicación web que lea nombres de supuestos alumnos (valdrá
+  cualquier texto introducido).
+
+• La introducción de alumnos termina cuando indicamos la palabra fin.
+
+• Los nombres no se pueden repetir, si se repite se indica que el nombre está
+  repetido y se pide otro.
+
+• La aplicación agrupará los usuarios de 3 en 3 en grupos aleatorios.
+
+• Si el número de alumnos no es múltiplo de tres los alumnos sobrantes se
+  mueven uno a uno de forma aleatoria en los grupos que indiquemos.
+
+• Ejemplo de resultado:
+- Grupo 1: Adela, Maite, Javier
+- Grupo 2: Pedro, ltziar, Leire, Marco
+- Grupo 3: Josune, Andrés, Xuso
+- Grupo 4: Jordi, Antón, Neus, Marta
+
+• Hay dos grupos de 4 alumnos al haber más alumnos, es importante que los dos
+  alumnos no se coloquen en mismo grupo formando un grupo de 5.

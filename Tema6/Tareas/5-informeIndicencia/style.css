@@ -1,0 +1,25 @@
+.centered-box {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilos relacionados con BoltCSS.
+Elimina el cambio de color al pasar el ratón sobre
+una fila de la tabla */
+table tr:hover td,
+tbody tr:nth-child(even):hover td {
+  background-color: #0f0f0f;
+}

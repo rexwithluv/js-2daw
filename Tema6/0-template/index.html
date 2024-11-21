@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boltcss/bolt.min.css">
+    <link rel="shortcut icon" media="(prefers-color-scheme: dark)"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEfElEQVR4nO1WzU8kRRSfuHpVo8b1D1AC/V4PHwMkfETGMAOBMINA+EoIFyBhDhzgxIGPGGPgIIYDA6wfQzDB8CEQMQMJs6G7ajhw27g3L8Z4Wdw97Go067IfbV5RPdb29DSzu+LJSl7S/erVe7+qV+/3yuf7fzzHKCwsfFM/H02apmm+/2JomvYuAHyEiDcQ0VLkzqUGRsSriBgHgDMl6G8AcBMAkog45rAvB4C7APCV3+9/+4WCA0A1AJxSUAB4CAAJRAwHAoFXcq3RNK0SEe/LNbcB4IPnCo6IXYj4l3R0iIiFThvLsl7inGumaYY5533pdDpyfHxcHolE/HKNAK7reucz7xz/CX6trq7uZXXeNM1SxtjnjLFTzrnlIvcNw0hGo9E9mbIHuq7X57vzqwDwqwz+mTpnGMY7nPM1xthjCrSxsSEkBwghsVhM+ELEW3ndCUSMy+Cpzs7OK7Y+nU4XM8Z+th0fHh5aFRUVQug7FwDTNK2Ojo4nEsSX+ZTaGeVNzTljrIxz/ofqeGZmJlOKs7Oznqewvb1tFRcXk+1jipETAJzXOe0+4Tj2X5xOo9FoBkBra6snAJKhoSFhG4lEtrwA/EBGuq6HlN1/43S2tbUlnNkpoG/SeQFIJBLCLhgMPjo5OXnVlV7xfEe/23Uu8y4unCpjY2PC2fDwsBD6Jp0XAMaYVVZWRpuzdnZ2PnXLf4kEcMPWcc6/cLtUtbW1Iujq6qoQ+q6urhZzXiBaWlqE7crKyj3DMJ4qbR81Fpn/fYVkbjmdLCwsCCf19fUZXSgUErp4PO4JoKenR9gtLi7SibzvzH+LPIHv5e41Nyd9fX3CyeTkZEY3MTEhdDTnBaCrq0vYLS8v0/+UE0CNBHAiL1+D08H+/r5dTlZvb6/V398vhL4pt36/30omkzkBhMNhsXZ9fZ1O4JrzDryBiE8A4E+iXuJ2p4Pp6Wm1DbsK2bgFPzo6sgKBgAB6cHBAuu/cyvBHcqJpWi01FqeTxsbGzI2fn59/SkZHR8VcQ0ODK4ClpSUx39zcbFfFahYARPzEpkzqaqqDtbU14aCqqsoyDCMrAOlojmzI1jk/ODgo5sbHx23dTBaAoqKi92TfP2tra0Pqair5VFZWWlNTUzlzTHNk4yQlyjkdfUlJibW7u2vre7IAyDQkZDlep5Z6EcVeJMQN7e3tYvcjIyP28Z8ZhvG6KwBqmfYriPr5iwKgoOSLyIuqSOq/9XkNXddD9IighbFY7PQihstFvTZll5aWCsaUc4+IYzwB2E8y+yFK/Zxaar7BKef2sVNwqhIF2Jwv3wEAQXpYkqPy8nL1CF3rnBhuYGBAXDhaU1NTo+6cgl/P6gEXjYKCgrfoiR0MBn9KpVKZzri3tyeCdXd3C4YjgDYZ0W2n3KuAZXD3i5fv4Jx/yBi7TQ7n5uayWLCpqUnUuVJqJA/p2J9557kGPSY45x8zxu5QVyOGo5xLelV3/IBzvm2aZpHvMsbm5uYVaqnU1eiJTtzOGPuaMTZLJJNKpV67lMD/9vgbE+3nxPzf9s8AAAAASUVORK5CYII=">
+    <link rel="shortcut icon" media="(prefers-color-scheme: light)"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEhElEQVR4nO1WzU9jVRRvZnSrRo36B2AivaevCI2AEithSkIigQ2fMSRsYMnHghWQFCIKqCGEAlU+agMCBRYCY4AW3jv3FTILkonu3EwmbgZnFn5EMw7z8cy53te8tq+PMiOuvMlJ2nPOO7/fveeec67L9f96ihWPx1/RNM2j63oN59zt+i+WqqoFiBhExJucc8Mi9y4VOJFIvI6IIUQ8M0ER8TfO+Q+c8+uc816rfzKZ9HHOf0HE+aOjo9eeCRwR30XEUwn8EBEXNE0LnJycPO/wzTuc8/uS6F1N0yqfClzTtEbO+V8SfF9V1bds3K643W43AAQA4CPGWC0A+CKRiELfmMR1XW+48M65BEfEsKqqz1nthYWFbwPAl4yxUwAwbOS+oijX5+fnt2SMB5zzqovk/Gf54RdWm9vtfoMxtgwAjwkoEAgIyUFCyPDwsIjFOb+T151AxJAEj8disaumnjHmBYDbZmCfz2fs7e0Jod+5CCiKYoTD4SeSxFw+pXZGebPm3OPxFDPG/rAG7uzsTJViR0eH4ylUVlYaqqoamqY9Jgyn3Qfl7hesxw4AP2UGjUQiKQKLi4uOBEhGR0dN33UnAt+Tk67r10wdAHyTGayqqkoEM1NAv0nnRKC+vl74bWxsPCooKHjBtr3yf3b/u1nnMu/iwlmlv79fBBsZGRFCv0nnRMDj8RiJRILiG36//7MsAslkskgSuGnZ/Vd2l2pra0uA1tbWCqHfOzs7wuZEIhqNCt+6urpf/X5/Wmm75GAhAt9J1RUAuJMZpLW1VQRZX19P6WKxmNC1tLQ4EpienhZ+zc3NdCLvpxHgnH8oCWzLy+e2CzI5OSmC9PT0pHS9vb1CRzYnArOzs8KvsbGR/g9mEnhPErgh81+dGaCsrIxKSeQxFAoZExMTQqampoSOpLy8PCeBtbU1QaC6utpgjIXTCBwfH7+MiE8Q8U9qvdTbMwN0dXVZx7CtkI8deFFRkRGPxwXJ0tJS0n1rV4Y/yjKskIMlLcjKyooAGRgYMNra2tJkcHBQ2FZXV20JNDU1CfvS0pKp+9qOwMdmy6SpZg1QU1OTuu1erzcLgHRkIx/yzbSPjY0JW19fn/jPGPski4CmaW/KuX8WjUaBppq1+ezu7hrd3d05c0w28slsSpRzOvrDw0PqASaB5iwC8hQW5GVM0Eg9r8WeJ9Qb5ubmxO6DwaAJfub1el+yJUAj03wF0Tx/VgIESrGoeVEVSf2Gy2npun5NPiKMoaGh0/M6XK7Wa7bsg4MD0THl7h9Rj3EkYD7JzIcozXMaqfmCU87NYydwqhLTxhj73JXv0nX9A3pYUqD9/X3rEdrWOXW48fFxceHom+3t7dTOJXgiawact1RVfZWe2Jubm7eKi4tTk7GiokKAzczMiA5HBM1mRLedcm8lTOA5L16+CwDqGWN3KWB7e3tWF1xeXhZ1bpaaBH5Ix37hneda9JgAgGFFUe7RVKMORzmX7dUqDwBgkzFW6LqM1dDQcJVGKk01eqJTbweAKGPsU2oyJSUlL14K8L+9/gYFcP1So4Oi2gAAAABJRU5ErkJggg==" />
+    <link rel="icon" href="https://fontawesome.com/icons/a?f=classic&s=solid&pc=%23B197FC&sc=%23B197FC"
+        type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Ejercicio </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="centered-box">
+            <h1>CHANGE ME</h1>
+            <button type="button">CHANGE ME</button>
+        </div>
+    </div>
+</body>
+
+</html>

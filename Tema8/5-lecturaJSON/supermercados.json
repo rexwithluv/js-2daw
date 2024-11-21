@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "Gadis",
+    "calle": "Rúa Travesía de Vigo 100",
+    "ciudad": "Vigo",
+    "telefono": "986266154"
+  },
+  {
+    "nombre": "Gadis",
+    "calle": "Av. Alcalde Gregorio Espino 6",
+    "ciudad": "Vigo",
+    "telefono": "986252688"
+  },
+  {
+    "nombre": "Gadis",
+    "calle": "Rúa Travesía de Vigo 39",
+    "ciudad": "Vigo",
+    "telefono": "986266412"
+  }
+]

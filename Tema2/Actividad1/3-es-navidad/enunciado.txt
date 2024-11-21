@@ -1,0 +1,15 @@
+Enunciado de la pregunta
+
+Lee por la entrada estándar (normalmente teclado) día y mes en formato numérico, cada uno en una línea.
+
+Debes realizar un programa que imprima "SI" si es navidad (el 25 del 12) y "NO" si es no es navidad.
+
+Por ejemplo:
+
+Entrada	Resultado
+
+24 12        NO
+
+25 12        SI
+
+10  2        NO

@@ -1,0 +1,3 @@
+ Crear una página que muestre los primeros 10000 símbolos de la tabla Unicode.
+
+• Se mostrará en una tabla en la que en cada fila se indica el número de código, seguido del carácter de ese código

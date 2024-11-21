@@ -1,0 +1,93 @@
+.centered-box {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+table {
+  margin: auto;
+  width: 80%;
+}
+
+th,
+td {
+  text-align: center;
+}
+
+.label-container {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  padding: 15px;
+}
+
+.button-container {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* El velo negro */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  transform: translateY(-100%); /* Comienza fuera de la vista, arriba */
+  transition: transform 0.8s ease; /* Controla la velocidad de entrada/salida */
+  z-index: 1000;
+  display: none;
+}
+
+/* Animación de entrada desde arriba */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Animación de salida hacia arriba */
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+/* Clase para mostrar y activar la animación de entrada */
+#overlay.active {
+  display: block; /* Muestra el overlay */
+  animation: slideDown 0.8s ease forwards; /* Ejecuta la animación de entrada */
+}
+
+/* Clase para la animación de salida */
+#overlay.hide {
+  animation: slideUp 0.8s ease forwards; /* Ejecuta la animación de salida */
+}
+
+/* Estilos relacionados con BoltCSS.
+Elimina el cambio de color al pasar el ratón sobre
+una fila de la tabla */
+table tr:hover td,
+tbody tr:nth-child(even):hover td {
+  background-color: #0f0f0f;
+}

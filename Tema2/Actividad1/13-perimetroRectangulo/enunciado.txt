@@ -1,0 +1,24 @@
+Escribe una función que reciba dos decimales con la base y altura de un
+rectángulo y devuelva su perímetro. La función no debe leer nada de la entrada
+estándar ni mandar ningún dato por la salida estándar.
+
+Nota: se devolverá un decimal (float). El juez internamente se encargará de
+redondearlo a 2 decimales.
+
+La función debe definirse con este estilo:
+
+function perimetroRectangulo(a, b)
+
+Por ejemplo:
+Entrada	Resultado
+
+11.50
+2.00
+
+27.00
+
+
+1.10
+2.20
+
+6.60

@@ -1,0 +1,23 @@
+Enunciado de la pregunta
+
+Escribe un programa que lea por entrada estándar una calificación numérica entre 0 y 10 (con decimales) y la transforma en calificación alfabética según la siguiente tabla.
+
+De 0 a <3 Muy deficiente.
+
+De 3 a <5 Insuficiente.
+
+De 5 a <6 Bien.
+
+De 6 a <9 Notable.
+
+De 9 a 10 Sobresaliente.
+
+Por ejemplo:
+
+Entrada	Resultado
+
+0              Muy deficiente
+
+3              Insuficiente
+
+5.3           Bien

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boltcss/bolt.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Ahorcado</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="centered-box">
+            <h3>Bienvenido al Ahorcado!</h3>
+            <pre id="dibujo"></pre>
+            <h5 id="palabra"></h5>
+
+            <hr>
+
+            <input type="text" name="letra" id="letra" size="1" maxlength="1">
+            <button type="button" onclick="comprobarLetra()">Comprobar letra</button>
+
+            <hr>
+            <h4>Letras usadas</h4>
+            <pre id="letrasUsadas"></pre>
+
+            <div id="divReiniciar">
+                <hr>
+                <button type="button" onclick="reiniciar()">Reiniciar partida</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

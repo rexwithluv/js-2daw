@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="x-ua-compatible" charset="UTF-8" content="IE=10">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boltcss/bolt.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Viajes Imserso</title>
+</head>
+
+<body>
+    <h1>ViajesImserso</h1>
+
+    <p>Nombre del lugar:</p>
+    <input type="text" id="nombreLugar" />
+
+    <p>Posición:</p>
+    <input type="text" id="posicion" />
+
+    <p>
+        <button type="button" id="start" onclick="modify('start');">Insertar Inicio</button>
+        <button type="button" id="insert" onclick="modify('insert');">Insertar na posición</button>
+        <button type="button" id="end" onclick="modify('end');">Insertar Final</button>
+        <button type="button" id="change" onclick="modify('change');">Cambiar posición</button>
+        <button type="button" id="delete" onclick="modify('delete');">Borrar de la posición</button>
+        <button type="button" id="clear" onclick="limpiarObs()">Limpiar observaciones</button>
+    </p>
+
+    <h3 id="lugares">Lugares</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Posición</th>
+                <th>Lugar</th>
+            </tr>
+        </thead>
+        <tbody id="tablaLugares">
+
+        </tbody>
+    </table>
+
+    <h3>Observaciones</h3>
+    <ul id="observaciones">
+
+    </ul>
+
+</body>
+
+</html>

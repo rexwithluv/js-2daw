@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boltcss/bolt.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Ejercicio </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="centered-box">
+            <h1>Modelos de la pila de red</h1>
+
+            <table>
+                <tr>
+                    <th class="osi">Modelo OSI</th>
+                    <th class="tcp-ip">Modelo TCP/IP</th>
+                </tr>
+                <tr>
+                    <td class="osi">Aplicación</td>
+                    <td rowspan="3" class="tcp-ip">Aplicación</td>
+                </tr>
+                <tr>
+                    <td class="osi">Presentación</td>
+                </tr>
+                <tr>
+                    <td class="osi">Sesión</td>
+                </tr>
+                <tr>
+                    <td class="osi">Transporte</td>
+                    <td class="tcp-ip">Transporte</td>
+                </tr>
+                <tr>
+                    <td class="osi">Red</td>
+                    <td class="tcp-ip">Internet</td>
+                </tr>
+                <tr>
+                    <td class="osi">Enlace a datos</td>
+                    <td rowspan="2" class="tcp-ip">Interfaz de red</td>
+                </tr>
+                <tr>
+                    <td class="osi">Física</td>
+                </tr>
+            </table>
+
+            <hr>
+
+            <div class="label-container">
+                <label for="osi">
+                    <input type="checkbox" name="osi" id="osi" checked>
+                    Modelo OSI
+                </label>
+
+                <label for="tcp-ip">
+                    <input type="checkbox" name="tcp-ip" id="tcp-ip" checked>
+                    Modelo TCP/IP
+                </label>
+            </div>
+
+            <div class="button-container">
+                <button type="button" id="ocultar-ambos">Ocultar ambos</button>
+                <button type="button" id="ocultar-todo">Ocultar todo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Velo negro -->
+    <div id="overlay"></div>
+</body>
+
+</html>

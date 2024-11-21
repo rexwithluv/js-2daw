@@ -1,0 +1,7 @@
+Crea un nuevo proyecto con Visual Studio Code llamado DWCC
+
+Haz que el proyecto sea un página web que tenga un título que diga "Mi primera web con Visual Studio Code"
+
+Uso de archivo externo con CSS que modifique la letra para que sea sans-serif y que el texto VSC sea de color violeta.
+
+NOTA: Lo he llamado "1-Configuracion-VSCode-JS" en lugar de DWCC

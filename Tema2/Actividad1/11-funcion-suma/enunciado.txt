@@ -1,0 +1,21 @@
+Escribe una función que reciba dos enteros y devuelva su suma.
+La función no debe leer nada de la entrada estándar ni mandar ningún dato por
+la salida estándar.
+
+La función debe definirse con este estilo:
+
+function suma(a, b)
+
+Por ejemplo:
+Entrada	Resultado
+
+2
+3
+
+5
+
+
+100
+2212
+
+2312

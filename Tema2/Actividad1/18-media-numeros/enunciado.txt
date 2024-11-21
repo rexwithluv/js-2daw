@@ -1,0 +1,7 @@
+Crea una aplicación web que pida continuamente números hasta que el usuario indique el número cero.
+
+• Al final indicará la media de los números introducidos.
+
+• Si en algún momento no es un número lo que escribe el usuario, se le pide de nuevo.
+
+• Si cancela cualquier cuadro de lectura, el programa termina y se indica que el usuario ha cancelado y no se mostrará la media.

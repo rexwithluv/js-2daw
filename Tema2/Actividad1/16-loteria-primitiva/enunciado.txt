@@ -1,0 +1,5 @@
+• Crear una aplicación web que muestre cincuenta combinaciones para jugar a la lotería primitiva
+
+• Las combinaciones son seis números del 1 al 49, pero hay que tener en cuenta
+que no se pueden repetir los números
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boltcss/bolt.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Ejercicio </title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="centered-box">
+            <h1>Informe indicencia</h1>
+
+            <table>
+                <tr>
+                    <td>
+                        <img src="images/distribucion.jpg" id="imagen" alt="Imagen relacionada con la distribucion">
+                    </td>
+
+                    <td>
+                        <form action="#" id="form">
+                            <label for="incidencia">Tipo de indicencia:</label>
+                            <select name="indicencia" id="incidencia">
+                                <option value="distribucion">Distribución</option>
+                                <option value="oficina">Oficina</option>
+                                <option value="produccion">Producción</option>
+                            </select>
+
+                            <div id="caja-numero-serie">
+                                <label for="numero-serie">Número de serie:</label>
+                                <input type="text" name="numero-serie" id="numero-serie">
+                            </div>
+
+                            <div id="caja-descripcion" hidden>
+                                <label for="descripcion">Descripción:</label>
+                                <textarea name="descripcion" id="descripcion"></textarea>
+                            </div>
+
+                            <p></p>
+
+                            <button type="button" id="boton-descripcion">Mostrar descripción</button>
+
+                            <p>&nbsp;</p>
+
+                            <button type="submit">Enviar datos</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

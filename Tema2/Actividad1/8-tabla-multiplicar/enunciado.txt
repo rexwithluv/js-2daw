@@ -1,0 +1,31 @@
+Desarrollar un programa que muestre la tabla de multiplicar del número X, hasta el valor Y. Ambos los leerá de la entrada estándar y estarán en una sola línea, separados por un espacio, siendo -50 <= X <= 50 , 1 <= Y <= 20
+
+La tabla la mostrará con una entrada por línea. Entre cada elemento habrá un único espacio de separación.
+
+Por ejemplo:
+Entrada	Resultado
+
+2 7
+
+
+
+2 x 1 = 2
+2 x 2 = 4
+2 x 3 = 6
+2 x 4 = 8
+2 x 5 = 10
+2 x 6 = 12
+2 x 7 = 14
+
+44 2
+
+
+
+44 x 1 = 44
+44 x 2 = 88
+
+-3 1
+
+
+
+-3 x 1 = -3

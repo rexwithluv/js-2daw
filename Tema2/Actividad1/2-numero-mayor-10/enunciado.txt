@@ -1,0 +1,16 @@
+Ejercicio: ¿Algún número mayor que 10?
+
+Lee por la entrada estándar (normalmente teclado) tres números usando readline().
+
+El comando readline() te permite leer una línea completa.
+
+Si al menos uno de los valores ingresados es mayor a 10, mostrar por la salida estándar (normalmente el teclado) "ALGUNO MAYOR QUE 10". En caso contario mostrar "NINGUNO MAYOR QUE 10".
+
+Por ejemplo:
+
+
+Entrada	Resultado
+
+10            10
+
+9              NINGUNO MAYOR QUE 10

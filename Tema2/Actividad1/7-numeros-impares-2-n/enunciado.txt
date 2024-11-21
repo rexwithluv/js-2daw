@@ -1,0 +1,5 @@
+Realiza un programa que lea un número N y muestre por la salida estándar todos los impares desde N (inclusive) hasta 1.
+
+Cada número se mostrará en una línea distinta.
+
+N siempre será mayor o igual a 1.
