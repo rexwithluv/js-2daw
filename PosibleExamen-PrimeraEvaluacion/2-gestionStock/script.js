@@ -2,15 +2,9 @@
 
 class User {
     constructor(name, passwd) {
-        this._name = name;
-        this._passwd = passwd;
+        this.name = name;
+        this.passwd = passwd;
     }
-
-    get name() { return this._name; }
-    set name(value) { this._name = value; }
-
-    get passwd() { return this._passwd }
-    set passwd(value) { this._passwd = value; }
 }
 
 document.getElementById("form").addEventListener("submit", (ev) => {
@@ -33,7 +27,7 @@ document.getElementById("form").addEventListener("submit", (ev) => {
     ]));
 
     // Revisamos si el usuario existe en el localStorage
-    if (VALID_USERS.some(user => user._name === DOMusername.value && user._passwd === DOMpassword.value)) {
+    if (VALID_USERS.some(user => user.name === DOMusername.value && user.passwd === DOMpassword.value)) {
         location.href = "./stock.html";
     } else {
         Swal.fire({

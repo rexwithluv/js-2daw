@@ -2,37 +2,10 @@
 
 class Producto {
     constructor(id, nombre, cantidad, precio) {
-        this._id = id
-        this._nombre = nombre;
-        this._cantidad = cantidad;
-        this._precio = precio;
-    }
-
-    get id() { return this._id; }
-    set id(value) { throw Error("El ID no es modificable!"); }
-
-    get nombre() { return this._nombre; }
-    set nombre(value) {
-        if (value.trim() === "") {
-            throw Error("El nombre del producto no puede estar vacío!");
-        }
-        this._nombre = value;
-    }
-
-    get cantidad() { return this._cantidad; }
-    set cantidad(value) {
-        if (value === 0) {
-            throw Error("No puedes añadir un producto si no tienes stock!");
-        }
-        this._cantidad = value;
-    }
-
-    get precio() { return this._precio; }
-    set precio(value) {
-        if (value === 0.00) {
-            throw Error("No puedes poner un producto sin precio!");
-        }
-        this._precio = value;
+        this.id = id
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precio = precio;
     }
 }
 
@@ -72,12 +45,22 @@ form.addEventListener("submit", (ev) => {
     const CANTIDAD_PRODUCTO = document.getElementById("cantidadProducto");
     const PRECIO_PRODUCTO = document.getElementById("precioProducto");
 
-    productos[ID_PRODUCTO - 1] = new Producto(
-        ID_PRODUCTO.value,
+    const PRODUCTO = new Producto(
+        parseInt(ID_PRODUCTO.value),
         NOMBRE_PRODUCTO.value,
-        CANTIDAD_PRODUCTO.value,
-        PRECIO_PRODUCTO.value
+        parseInt(CANTIDAD_PRODUCTO.value),
+        parseFloat(PRECIO_PRODUCTO.value)
     );
+
+    const BOTON_PULSADO = ev.submitter.value;
+
+    if (BOTON_PULSADO == "eliminar") {
+        productos = productos.filter(prod => prod.id != PRODUCTO.id)
+    } else if (BOTON_PULSADO == "crear") {
+        productos.push(PRODUCTO);
+        productos.sort((a, b) => a.id - b.id);
+        console.log(productos)
+    }
 
     localStorage.setItem("productos", JSON.stringify(productos));
     mostrarProductos(productos);
