@@ -2,7 +2,7 @@
 
 class Producto {
     constructor(id, nombre, cantidad, precio) {
-        this.id = id
+        this.id = id;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
@@ -35,33 +35,60 @@ if (localStorage.getItem("productos") === null) {
 let productos = JSON.parse(localStorage.getItem("productos"));
 mostrarProductos(productos);
 
-// CRUD => CU
+// CRUD => CUD
 const form = document.getElementById("formulario");
 form.addEventListener("submit", (ev) => {
     ev.preventDefault();
 
-    const ID_PRODUCTO = document.getElementById("idProducto");
-    const NOMBRE_PRODUCTO = document.getElementById("nombreProducto");
-    const CANTIDAD_PRODUCTO = document.getElementById("cantidadProducto");
-    const PRECIO_PRODUCTO = document.getElementById("precioProducto");
+    const ID_PRODUCTO = parseInt(document.getElementById("idProducto").value);
+    const NOMBRE_PRODUCTO = document.getElementById("nombreProducto").value;
+    const CANTIDAD_PRODUCTO = parseInt(document.getElementById("cantidadProducto").value);
+    const PRECIO_PRODUCTO = parseFloat(document.getElementById("precioProducto").value);
 
-    const PRODUCTO = new Producto(
-        parseInt(ID_PRODUCTO.value),
-        NOMBRE_PRODUCTO.value,
-        parseInt(CANTIDAD_PRODUCTO.value),
-        parseFloat(PRECIO_PRODUCTO.value)
-    );
+    try {
+        if (isNaN(ID_PRODUCTO) ||
+            isNaN(CANTIDAD_PRODUCTO) ||
+            isNaN(PRECIO_PRODUCTO) ||
+            Math.floor(PRECIO_PRODUCTO) === PRECIO_PRODUCTO) {
+            throw new Error();
+        }
 
-    const BOTON_PULSADO = ev.submitter.value;
+        const PRODUCTO = new Producto(
+            ID_PRODUCTO,
+            NOMBRE_PRODUCTO,
+            CANTIDAD_PRODUCTO,
+            PRECIO_PRODUCTO
+        );
 
-    if (BOTON_PULSADO == "eliminar") {
-        productos = productos.filter(prod => prod.id != PRODUCTO.id)
-    } else if (BOTON_PULSADO == "crear") {
-        productos.push(PRODUCTO);
-        productos.sort((a, b) => a.id - b.id);
-        console.log(productos)
+        const BOTON_PULSADO = ev.submitter.value;
+
+        if (BOTON_PULSADO == "eliminar") {
+            productos = productos.filter(prod => prod.id != PRODUCTO.id)
+        } else if (BOTON_PULSADO == "crear") {
+            if (productos.some(prod => prod.id == PRODUCTO.id)) {
+                productos = productos.filter(prod => prod.id != PRODUCTO.id);
+            }
+
+            productos.push(PRODUCTO);
+            productos.sort((a, b) => a.id - b.id);
+        }
+
+        localStorage.setItem("productos", JSON.stringify(productos));
+        mostrarProductos(productos);
+    } catch (error) {
+        Swal.fire({
+            title: "¿Este producto es real?",
+            text: "Recuerda:\n" + [
+                "ID => Número entero",
+                "Nombre => Alfanumérico",
+                "Cantidad => Número entero",
+                "Precio => Número decimal"
+            ].join(" | "),
+            icon: "error",
+            confirmButtonText: "Aceptar"
+        });
     }
 
-    localStorage.setItem("productos", JSON.stringify(productos));
-    mostrarProductos(productos);
+
+
 });
