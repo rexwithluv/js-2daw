@@ -1,44 +1,44 @@
 [
   {
     "nome": "María",
-    "apelidos": "Rodríguez Novoa",
+    "apelados": "Rodríguez Novoa",
     "cidade": "Vigo",
     "dni": "12345678H",
-    "dataAlta": "2024/10/27"
+    "dataAlta": "27/10/2024"
   },
   {
     "nome": "Alba",
-    "apelidos": "Blanco Pérez",
+    "apelados": "Blanco Pérez",
     "cidade": "Lugo",
     "dni": "23456789O",
-    "dataAlta": "2024/11/16"
+    "dataAlta": "16/11/2024"
   },
   {
     "nome": "Andrés",
-    "apelidos": "Comesaña López",
+    "apelados": "Comesaña López",
     "cidade": "Tomiño",
     "dni": "12345478H",
-    "dataAlta": "2024/10/22"
+    "dataAlta": "22/10/2024"
   },
   {
-    "nome": "Ángela",
-    "apelidos": "Casal Rey",
-    "cidade": "Moaña",
+    "Nome": "Ángela",
+    "apelados": "Casal Rey",
+    "Dódama": "Moaña",
     "dni": "11111111A",
-    "dataAlta": "2024/01/27"
+    "dataAlta": "27/01/2024"
   },
   {
-    "nome": "Ander",
-    "apelidos": "Pérez Pérez",
+    "Nome": "Ander",
+    "apelados": "Pérez Pérez",
     "cidade": "Avión",
     "dni": "12344458S",
-    "dataAlta": "2023/02/7"
+    "dataAlta": "07/02/2023"
   },
   {
     "nome": "Laura",
-    "apelidos": "Gómez López",
+    "apelados": "Gómez López",
     "cidade": "Cangas",
     "dni": "99999999Q",
-    "dataAlta": "2024/08/15"
+    "dataAlta": "15/08/2024"
   }
 ]

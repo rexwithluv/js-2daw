@@ -1,15 +1,19 @@
 # Enunciado 1 - Gestión de usuarios
 
-Se va a construir una aplicación sencilla de **Gestión de Usuarios**:
+Se va a construir una aplicación sencilla de Gestión Usuarios:
 
-- Login con un formulario de usuario y contraseña:
-  - Usar **expresiones regulares** para la comprobación del la corrección del formato
-    - User: Letras minúsculas, símbolos y números con una longitud mínima de 4 caracteres y máxima de 18
-    - Passwd: Una longitud mínima de ocho caracteres, una letra mayúscula, una letra minúscula, un símbolo y un número.
-  - Que use **localStorage** para guardar los datos de los usuarios.
-- Gestión usuario:
-  - Posteriormente, mostraremos un listado de los usuarios registrados
+Login con un formulario de usuario y contraseña:
 
-- Requisitos:
-  - Uso DOM
-  - Uso Listeners de Eventos
+- (usar expresiones regulares para la comprobación del la corrección del formato),
+  - usuario - letras minúsculas, símbolos y números.  Mínimo 4 caracteres (máximo 18)
+  - contraseña - letra minúscula y mayúscula, número, caracteres especiales (mínimo 8 caracteres de longitud)
+- que use localStorage para guardar los datos de los usuarios.
+
+Gestión Usuario
+
+- Posteriormente, mostraremos un listado de los usuarios registrados.
+
+Requisitos:
+
+- Uso DOM
+- Uso Listeners de Eventos

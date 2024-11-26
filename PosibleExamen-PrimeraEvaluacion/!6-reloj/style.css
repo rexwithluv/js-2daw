@@ -1,0 +1,26 @@
+body {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+
+.bg-custom {
+  background: rgb(255, 225, 238);
+  background: radial-gradient(
+    circle,
+    rgb(255, 230, 240) 0%,
+    rgb(235, 244, 255) 100%
+  );
+}
+
+.btn.bg-custom:hover {
+  background: rgb(255, 211, 230);
+  background: radial-gradient(
+    circle,
+    rgb(255, 206, 225) 0%,
+    rgb(221, 236, 255) 100%
+  );
+}

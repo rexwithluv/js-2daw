@@ -88,7 +88,16 @@ form.addEventListener("submit", (ev) => {
             confirmButtonText: "Aceptar"
         });
     }
-
-
-
 });
+
+// Contador de visitas
+const numeroVecesDOM = document.getElementById("numeroVeces");
+let numeroVeces = 0;
+if (localStorage.getItem("numeroVeces") === null) {
+    localStorage.setItem("numeroVeces", numeroVeces)
+} else {
+    numeroVeces = localStorage.getItem("numeroVeces");
+}
+numeroVeces++;
+numeroVecesDOM.textContent = numeroVeces;
+localStorage.setItem("numeroVeces", numeroVeces);

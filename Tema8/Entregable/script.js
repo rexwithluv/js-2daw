@@ -38,7 +38,7 @@ const reloadTable = (table, list) => {
 
 const form = document.getElementById("form");
 const tableBody = document.getElementById("tabla").tBodies[0];
-let persons = await fetch("alumnos.json").then(response => response.json());
+let persons = fetch("alumnos.json").then(response => response.json());
 
 /* Esto es para debugging */
 // let persons = [
