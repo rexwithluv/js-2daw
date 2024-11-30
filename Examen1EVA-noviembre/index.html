@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos de Bootstrap-->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src='./js/script.js'></script>
+    <title>Examen 1aEVA DWCC - Carrito Compra</title>
+</head>
+
+<body>
+
+    <!-- Forma parte del carrito de la compra -->
+    <header class="py-3 text-center">
+        <h1>Has visitado nuestra página <span id="numeroVeces">0</span> veces!</h1>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <!-- Elementos generados a partir de la basedeDatos -->
+            <main id="items" class="col-sm-8 row">
+            </main>
+
+            <!-- Carrito -->
+            <aside class="col-sm-4">
+                <h2>Carrito Informática - Grupo B</h2>
+
+                <!-- Elementos del carrito -->
+
+                <ul id="carrito" class="list-group">
+
+                </ul>
+                <hr>
+
+                <!-- Precio total -->
+                <p class="text-right">Total: <span id="total">0,00</span>&euro;</p>
+
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            </aside>
+        </div>
+    </div>
+
+</body>
+
+</html>
