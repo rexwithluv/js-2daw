@@ -1,5 +1,6 @@
 "use strict";
 
+// Clases
 class Person {
     constructor(dni, name, lastName, city, entryDate) {
         this.dni = dni;
@@ -10,84 +11,101 @@ class Person {
     }
 }
 
-/* .every y .some
-.every => Si alguno de sus valores no cumple la condición, devuelve false
-.every => Si todos los valores cumplen la condición, devuelve true
-.some => Si alguno de sus valores cumple la condición, devuelve true
-.some => Si ninguno de sus elementos cumple la condición, devuelve false */
-const clearInputs = (...inputs) => inputs.map(input => input.value = "");
-const dataOK = (...args) => args.every(arg => arg.value.length > 0);
 
-// Función para cargar la tabla en base a un array/lista
-// El param 'table' debe ser un objeto DOM
-const loadDataInTable = (table, list) => {
-    list.forEach(person => {
+// Variables globales
+let personas;
+fetch("alumnos.json")
+    .then(response => response.json())
+    .then(data => {
+        personas = data;
+        loadDataInTable(document.getElementById("tabla").tBodies[0], data);
+    })
+    .catch(error => console.error("Error: ", error));
+
+
+// Funciones
+function clear() {
+    document.getElementById("dni").value = "";
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellidos").value = "";
+    document.getElementById("ciudad").value = "";
+}
+
+function loadDataInTable(tableBody, personsList) {
+    personsList.forEach(person => {
         let tr = document.createElement("tr");
+
         for (let prop in person) {
             let td = document.createElement("td");
             td.textContent = person[prop];
             tr.append(td);
         }
-        table.append(tr);
+
+        tableBody.append(tr);
     });
-};
-const reloadTable = (table, list) => {
-    table.innerHTML = "";
-    loadDataInTable(table, list);
-};
+}
 
-const form = document.getElementById("form");
-const tableBody = document.getElementById("tabla").tBodies[0];
-let persons = fetch("alumnos.json").then(response => response.json());
+function reloadTable(tableBody, personsList) {
+    tableBody.innerHTML = "";
+    loadDataInTable(tableBody, personsList);
+}
 
-/* Esto es para debugging */
-// let persons = [
-//     new Person("12345678A", "María", "González", "Barcelona"),
-//     new Person("87654321B", "Juan", "Rodríguez", "Madrid"),
-//     new Person("23456789C", "Ana", "Fernández", "Valencia"),
-//     new Person("34567890D", "Carlos", "López", "Sevilla",)
-// ];
-// tableBody.innerHTML = "";
-// loadDataInTable(tableBody, persons);
-/* Hasta aquí el debugging */
 
-form.addEventListener("submit", (evnt) => {
-    evnt.preventDefault();
+//Listeners
+document.getElementById("form").addEventListener("submit", (ev) => {
+    ev.preventDefault();
 
-    let dni = document.getElementById("dni");
-    let name = document.getElementById("nombre");
-    let lastName = document.getElementById("apellidos");
-    let city = document.getElementById("ciudad");
+    const capitalize = (str) => str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ");
+    const DOMdni = document.getElementById("dni").value.toUpperCase();
+    const DOMnombre = capitalize(document.getElementById("nombre").value);
+    const DOMapellidos = capitalize(document.getElementById("apellidos").value);
+    const DOMciudad = capitalize(document.getElementById("ciudad").value);
 
-    if (dataOK(dni, name, lastName, city)) {
-        let person = new Person(dni.value, name.value, lastName.value, city.value);
-        persons.push(person);
+    const dataOK = (...args) => args.every(arg => arg.length > 0);
+    if (dataOK(DOMdni, DOMnombre, DOMapellidos, DOMciudad)) {
+        const person = new Person(
+            DOMdni,
+            DOMnombre,
+            DOMapellidos,
+            DOMciudad,
+            new Date().toLocaleDateString("es-ES", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            }));
+        personas.push(person);
 
-        reloadTable(tableBody, persons);
+        let DOMtableBody = document.getElementById("tabla").tBodies[0];
+        reloadTable(DOMtableBody, personas);
 
         alert("Los datos fueron cargados correctamente.");
-        clearInputs(dni, name, lastName, city);
+        clear();
     } else {
-        alert("Debes introducir los campos solicitados!");
+        alert("Debes introducir los datos solicitados.");
     }
+
 });
 
-// Listeners de cada encabezado
-// Esto está fatal hecho pero si funciona me importa poco, NADA
 const headers = document.querySelectorAll("table thead th");
 headers.forEach(head => {
     head.addEventListener("dblclick", (evnt) => {
         const col = evnt.target.getAttribute("col");
         if (col === "dni") {
-            persons.sort((a, b) => parseInt(a.dni) - parseInt(b.dni));
+            personas.sort((a, b) => parseInt(a.dni) - parseInt(b.dni));
         } else if (col === "nombre") {
-            persons.sort((a, b) => a.name.localeCompare(b.name));
+            personas.sort((a, b) => a.nombre.localeCompare(b.nombre));
         } else if (col === "apellidos") {
-            persons.sort((a, b) => a.lastName.localeCompare(b.lastName));
+            personas.sort((a, b) => a.apellidos.localeCompare(b.apellidos));
+        } else if (col === "ciudad") {
+            personas.sort((a, b) => a.ciudad.localeCompare(b.ciudad));
         } else {
-            persons.sort((a, b) => a.city.localeCompare(b.city));
+            personas.sort((a, b) => {
+                const [diaA, mesA, anioA] = a.fechaAlta.split('/').map(Number);
+                const [diaB, mesB, anioB] = b.fechaAlta.split('/').map(Number);
+                return new Date(anioA, mesA - 1, diaA) - new Date(anioB, mesB - 1, diaB);
+            });
         }
 
-        reloadTable(tableBody, persons);
+        reloadTable(document.getElementById("tabla").tBodies[0], personas);
     });
 });
