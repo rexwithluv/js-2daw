@@ -22,53 +22,56 @@
 </head>
 
 <body>
-    <div class="container border rounded bg-body-secondary mt-3 text-center">
-        <form action="#" method="get" id="form">
-            <h1 class="mt-2">Formulario</h1>
+    <div class="d-flex flex-column justify-content-center min-vh-100">
+        <div class="container border rounded bg-body-secondary text-center">
+            <form action="#" method="get" id="form">
+                <h1 class="mt-2">Formulario</h1>
 
-            <div class="input-group mb-3">
-                <label for="dni" class="input-group-text">DNI:</label>
-                <input type="text" name="dni" id="dni" class="form-control">
-            </div>
+                <div class="input-group mb-3">
+                    <label for="dni" class="input-group-text">DNI:</label>
+                    <input type="text" name="dni" id="dni" class="form-control">
+                </div>
 
-            <div class="input-group mb-3">
-                <label for="nombre" class="input-group-text">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" class="form-control">
-            </div>
+                <div class="input-group mb-3">
+                    <label for="nombre" class="input-group-text">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control">
+                </div>
 
-            <div class="input-group mb-3">
-                <label for="apellidos" class="input-group-text">Apellidos:</label>
-                <input type="text" name="apellidos" id="apellidos" class="form-control">
-            </div>
+                <div class="input-group mb-3">
+                    <label for="apellidos" class="input-group-text">Apellidos:</label>
+                    <input type="text" name="apellidos" id="apellidos" class="form-control">
+                </div>
 
-            <div class="input-group mb-3">
-                <label for="ciudad" class="input-group-text">Ciudad:</label>
-                <input type="text" name="ciudad" id="ciudad" class="form-control">
-            </div>
+                <div class="input-group mb-3">
+                    <label for="ciudad" class="input-group-text">Ciudad:</label>
+                    <input type="text" name="ciudad" id="ciudad" class="form-control">
+                </div>
 
-            <button type="submit" class="btn btn-primary mt-3 mb-3">Guardar</button>
-        </form>
+                <button type="submit" class="btn btn-primary mt-3 mb-3">Guardar</button>
+            </form>
+        </div>
+
+
+        <div class="container border rounded bg-body-secondary mt-5 text-center">
+            <h3 class="mt-2">Los datos almacenados</h3>
+
+            <table id="tabla" class="table table-striped table-hover border">
+                <caption>Datos</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" col="dni">DNI</th>
+                        <th scope="col" col="nombre">Nombre</th>
+                        <th scope="col" col="apellidos">Apellidos</th>
+                        <th scope="col" col="ciudad">Ciudad</th>
+                        <th scope="col" col="fecha-alta">Fecha de alta</th>
+                        <th scope="col" col="botones">Actividad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
-
-    <div class="container border rounded bg-body-secondary mt-3 text-center">
-        <h3 class="mt-2">Los datos almacenados</h3>
-
-        <table id="tabla" class="table table-striped table-hover border">
-            <caption>Datos</caption>
-            <thead>
-                <tr>
-                    <th scope="col" col="dni">DNI</th>
-                    <th scope="col" col="nombre">Nombre</th>
-                    <th scope="col" col="apellidos">Apellidos</th>
-                    <th scope="col" col="ciudad">Ciudad</th>
-                    <th scope="col" col="fecha-alta">Fecha de alta</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-
 </body>
 
 </html>

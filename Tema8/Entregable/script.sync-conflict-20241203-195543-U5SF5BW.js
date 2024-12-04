@@ -2,12 +2,12 @@
 
 // Clases
 class Person {
-    constructor(dni, nombre, apellidos, ciudad, fechaAlta) {
+    constructor(dni, name, lastName, city, entryDate) {
         this.dni = dni;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.ciudad = ciudad;
-        this.fechaAlta = fechaAlta;
+        this.name = name;
+        this.lastName = lastName;
+        this.city = city;
+        this.entryDate = entryDate;
     }
 }
 
@@ -31,14 +31,6 @@ function clear() {
     document.getElementById("ciudad").value = "";
 }
 
-function modRow(tr) {
-    console.log(tr.cells[0].textContent);
-    document.getElementById("dni").value = tr.cells[0].textContent;
-    document.getElementById("nombre").value = tr.cells[1].textContent;
-    document.getElementById("apellidos").value = tr.cells[2].textContent;
-    document.getElementById("ciudad").value = tr.cells[3].textContent;
-}
-
 function loadDataInTable(tableBody, personsList) {
     personsList.forEach(person => {
         let tr = document.createElement("tr");
@@ -49,31 +41,13 @@ function loadDataInTable(tableBody, personsList) {
             tr.append(td);
         }
 
-        let td = document.createElement("td");
-
-        let buttonMod = document.createElement("button");
-        buttonMod.classList.add("btn", "btn-warning", "me-2");
-        buttonMod.textContent = "Mod";
-        // buttonMod.innerHTML = '<i class="bi bi-pencil-square"></i>';
-        buttonMod.addEventListener("click", (ev) => console.log(modRow(ev.target.closest("tr"))));
-
-
-        let buttonDel = document.createElement("button");
-        buttonDel.classList.add("btn", "btn-danger");
-        buttonDel.textContent = "Del"
-        // buttonDel.innerHTML = '<i class="bi bi-trash2-fill"></i>';
-        buttonDel.addEventListener("click", (ev) => ev.target.closest("tr").remove());
-
-        td.append(buttonMod, buttonDel);
-        tr.append(td);
         tableBody.append(tr);
     });
-
 }
 
-function reloadTable(tableBody) {
+function reloadTable(tableBody, personsList) {
     tableBody.innerHTML = "";
-    loadDataInTable(tableBody, personas);
+    loadDataInTable(tableBody, personsList);
 }
 
 
@@ -89,7 +63,7 @@ document.getElementById("form").addEventListener("submit", (ev) => {
 
     const dataOK = (...args) => args.every(arg => arg.length > 0);
     if (dataOK(DOMdni, DOMnombre, DOMapellidos, DOMciudad)) {
-        const persona = new Person(
+        const person = new Person(
             DOMdni,
             DOMnombre,
             DOMapellidos,
@@ -99,12 +73,7 @@ document.getElementById("form").addEventListener("submit", (ev) => {
                 month: "2-digit",
                 day: "2-digit"
             }));
-
-        const existePersona = (persona) => personas.find(p => p.dni == persona.dni);
-        if (existePersona(persona)) {
-            personas = personas.filter(p => p.dni != persona.dni);
-        }
-        personas.push(persona)
+        personas.push(person);
 
         let DOMtableBody = document.getElementById("tabla").tBodies[0];
         reloadTable(DOMtableBody, personas);
