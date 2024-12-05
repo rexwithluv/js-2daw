@@ -1,44 +1,60 @@
-[
-  {
-    "dni": "11111111A",
-    "nombre": "Ángela",
-    "apellidos": "Casal Rey",
-    "ciudad": "Moaña",
-    "fechaAlta": "27/01/2024"
-  },
-  {
-    "dni": "12344458S",
-    "nombre": "Ander",
-    "apellidos": "Pérez Pérez",
-    "ciudad": "Avión",
-    "fechaAlta": "07/02/2023"
-  },
-  {
-    "dni": "12345478H",
-    "nombre": "Andrés",
-    "apellidos": "Comesaña López",
-    "ciudad": "Tomiño",
-    "fechaAlta": "22/10/2024"
-  },
-  {
-    "dni": "12345678H",
-    "nombre": "María",
-    "apellidos": "Rodríguez Novoa",
-    "ciudad": "Vigo",
-    "fechaAlta": "27/10/2024"
-  },
-  {
-    "dni": "23456789O",
-    "nombre": "Alba",
-    "apellidos": "Blanco Pérez",
-    "ciudad": "Lugo",
-    "fechaAlta": "16/11/2024"
-  },
-  {
-    "dni": "99999999Q",
-    "nombre": "Laura",
-    "apellidos": "Gómez López",
-    "ciudad": "Cangas",
-    "fechaAlta": "15/08/2024"
-  }
-]
+{
+  "alumnos": [
+    {
+      "id": "0aef",
+      "dni": "12344458S",
+      "nombre": "Ander",
+      "apellidos": "Pérez Pérez",
+      "ciudad": "Ourense",
+      "fechaAlta": "07/02/2023"
+    },
+    {
+      "id": "fe7b",
+      "dni": "12345478H",
+      "nombre": "Andrés",
+      "apellidos": "Comesaña López",
+      "ciudad": "Salceda",
+      "fechaAlta": "22/10/2024"
+    },
+    {
+      "id": "2374",
+      "dni": "12345678H",
+      "nombre": "María",
+      "apellidos": "Rodríguez Novoa",
+      "ciudad": "Vigo",
+      "fechaAlta": "27/10/2024"
+    },
+    {
+      "id": "c144",
+      "dni": "23456789O",
+      "nombre": "Alba",
+      "apellidos": "Blanco Pérez",
+      "ciudad": "Lugo",
+      "fechaAlta": "16/11/2024"
+    },
+    {
+      "id": "870f",
+      "dni": "99999999Q",
+      "nombre": "Laura",
+      "apellidos": "Gómez López",
+      "ciudad": "Cangas",
+      "fechaAlta": "15/08/2024"
+    },
+    {
+      "id": "f5b6",
+      "dni": "12345678A",
+      "nombre": "Pablo",
+      "apellidos": "Pérez",
+      "ciudad": "Vigo",
+      "fechaAlta": "05/12/2024"
+    },
+    {
+      "id": "2d36",
+      "dni": "14725896S",
+      "nombre": "David",
+      "apellidos": "Garrido",
+      "ciudad": "León",
+      "fechaAlta": "05/12/2024"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 "use strict";
 
-// Clases
-class Person {
+
+class Alumno {
     constructor(dni, nombre, apellidos, ciudad, fechaAlta) {
         this.dni = dni;
         this.nombre = nombre;
@@ -12,76 +12,193 @@ class Person {
 }
 
 
-// Variables globales
-let personas;
-fetch("alumnos.json")
-    .then(response => response.json())
-    .then(data => {
-        personas = data;
-        loadDataInTable(document.getElementById("tabla").tBodies[0], data);
-    })
-    .catch(error => console.error("Error: ", error));
-
-
 // Funciones
-function clear() {
+function limpiarFormulario() {
+    document.getElementById("dni").disabled = false;
     document.getElementById("dni").value = "";
     document.getElementById("nombre").value = "";
     document.getElementById("apellidos").value = "";
     document.getElementById("ciudad").value = "";
 }
 
-function modRow(tr) {
-    console.log(tr.cells[0].textContent);
-    document.getElementById("dni").value = tr.cells[0].textContent;
-    document.getElementById("nombre").value = tr.cells[1].textContent;
-    document.getElementById("apellidos").value = tr.cells[2].textContent;
-    document.getElementById("ciudad").value = tr.cells[3].textContent;
-}
+function capitalize(str) {
+    return str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ");
+};
 
-function loadDataInTable(tableBody, personsList) {
-    personsList.forEach(person => {
+function recargarTabla(listaAlumnos) {
+    const tbody = document.querySelector("tbody");
+    tbody.innerHTML = "";
+
+    listaAlumnos.forEach(alumno => {
         let tr = document.createElement("tr");
-
-        for (let prop in person) {
+        for (let prop in alumno) {
             let td = document.createElement("td");
-            td.textContent = person[prop];
+            td.textContent = alumno[prop];
+
+            if (prop == "id") {
+                td.hidden = true;
+            }
             tr.append(td);
         }
 
-        let td = document.createElement("td");
 
         let buttonMod = document.createElement("button");
+        buttonMod.type = "button";
         buttonMod.classList.add("btn", "btn-warning", "me-2");
-        buttonMod.textContent = "Mod";
-        // buttonMod.innerHTML = '<i class="bi bi-pencil-square"></i>';
-        buttonMod.addEventListener("click", (ev) => console.log(modRow(ev.target.closest("tr"))));
+        buttonMod.innerHTML = '<i class="bi bi-pencil-square"></i>';
+        buttonMod.addEventListener("click", (ev) => {
+            document.getElementById("dni").disabled = true;
 
+            document.getElementById("dni").value = ev.target.closest("tr").cells[1].textContent;
+            document.getElementById("nombre").value = ev.target.closest("tr").cells[2].textContent;
+            document.getElementById("apellidos").value = ev.target.closest("tr").cells[3].textContent;
+            document.getElementById("ciudad").value = ev.target.closest("tr").cells[4].textContent;
+        });
 
         let buttonDel = document.createElement("button");
+        buttonDel.type = "button";
         buttonDel.classList.add("btn", "btn-danger");
-        buttonDel.textContent = "Del"
-        // buttonDel.innerHTML = '<i class="bi bi-trash2-fill"></i>';
-        buttonDel.addEventListener("click", (ev) => ev.target.closest("tr").remove());
+        buttonDel.innerHTML = '<i class="bi bi-trash-fill"></i>';
+        buttonDel.addEventListener("click", (ev) => {
+            eliminarAlumno(ev.target.closest("tr").cells[1].textContent);
+        });
 
+        let td = document.createElement("td");
         td.append(buttonMod, buttonDel);
+
         tr.append(td);
-        tableBody.append(tr);
-    });
+        tbody.append(tr);
+    })
+}
+
+// Funciones CRUD
+async function guardarAlumno(alumno) {
+    try {
+        const response = await fetch("http://localhost:3000/alumnos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(alumno),
+        });
+        if (!response.ok) {
+            throw new Error("Error al guardar el el alumno:", response.status);
+        }
+
+        const nuevoAlumno = await response.json();
+        alumnos.push(nuevoAlumno);
+        Swal.fire({
+            title: "Alumno guardado",
+            text: "Alumno guardado con éxito.",
+            icon: "success",
+        });
+        limpiarFormulario();
+
+        main();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function leerJSON() {
+    try {
+        const response = await fetch("http://localhost:3000/alumnos");
+        if (!response.ok) {
+            throw new Error(`Error al leer el fichero .json: ${response.status} ${response.statusText}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function modificarAlumno(alumnoDNI) {
+    try {
+        const response = await fetch("http://localhost:3000/alumnos");
+        if (!response.ok) {
+            throw new Error("Error cargando los alumnos.");
+        }
+
+        const alumnos = await response.json();
+        const alumnoExistente = alumnos.find(almn => almn.dni === alumnoDNI);
+
+        const responsePUT = await fetch(`http://localhost:3000/alumnos/${alumnoExistente.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                id: alumnoExistente.id,
+                dni: alumnoExistente.dni,
+                nombre: document.getElementById("nombre").value.length > 0 ? capitalize(document.getElementById("nombre").value) : alumnoExistente.nombre,
+                apellidos: document.getElementById("apellidos").value.length > 0 ? capitalize(document.getElementById("apellidos").value) : alumnoExistente.apellidos,
+                ciudad: document.getElementById("ciudad").value.length > 0 ? capitalize(document.getElementById("ciudad").value) : alumnoExistente.ciudad,
+                fechaAlta: alumnoExistente.fechaAlta
+            }),
+        });
+
+        if (!responsePUT.ok) {
+            throw new Error("Error al modificar el alumno.");
+        }
+
+        main();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function eliminarAlumno(alumnoDNI) {
+    const result = await Swal.fire({
+        title: "Confirmación",
+        text: "¿Estás seguro de que quieres dar de baja este alumno?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Aceptar",
+        cancelButtonText: "Cancelar"
+    })
+
+    if (result.isConfirmed) {
+        try {
+            const response = await fetch("http://localhost:3000/alumnos");
+            if (!response.ok) {
+                throw new Error("Error cargando los alumnos.");
+            }
+
+            const alumnos = await response.json();
+            const alumnoExistente = alumnos.find(almn => almn.dni === alumnoDNI);
+
+            const responseDELETE = await fetch(`http://localhost:3000/alumnos/${alumnoExistente.id}`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json", },
+            });
+
+            if (!responseDELETE.ok) {
+                throw new Error("Error al eliminar al alumno");
+            }
+
+            main();
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
 }
 
-function reloadTable(tableBody) {
-    tableBody.innerHTML = "";
-    loadDataInTable(tableBody, personas);
+let alumnos;
+async function main() {
+    alumnos = await leerJSON();
+    recargarTabla(alumnos);
 }
 
 
-//Listeners
+// Listeners
 document.getElementById("form").addEventListener("submit", (ev) => {
     ev.preventDefault();
 
-    const capitalize = (str) => str.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ");
+    // Obtnemos todos los valores y los capitalizamos si es necesario
     const DOMdni = document.getElementById("dni").value.toUpperCase();
     const DOMnombre = capitalize(document.getElementById("nombre").value);
     const DOMapellidos = capitalize(document.getElementById("apellidos").value);
@@ -89,7 +206,7 @@ document.getElementById("form").addEventListener("submit", (ev) => {
 
     const dataOK = (...args) => args.every(arg => arg.length > 0);
     if (dataOK(DOMdni, DOMnombre, DOMapellidos, DOMciudad)) {
-        const persona = new Person(
+        const alumno = new Alumno(
             DOMdni,
             DOMnombre,
             DOMapellidos,
@@ -98,45 +215,53 @@ document.getElementById("form").addEventListener("submit", (ev) => {
                 year: "numeric",
                 month: "2-digit",
                 day: "2-digit"
-            }));
+            })
+        );
 
-        const existePersona = (persona) => personas.find(p => p.dni == persona.dni);
-        if (existePersona(persona)) {
-            personas = personas.filter(p => p.dni != persona.dni);
+        const existeAlumno = alumno => alumnos.find(almn => almn.dni === alumno.dni);
+        if (existeAlumno(alumno)) {
+            modificarAlumno(alumno.dni);
+        } else {
+            guardarAlumno(alumno);
         }
-        personas.push(persona)
 
-        let DOMtableBody = document.getElementById("tabla").tBodies[0];
-        reloadTable(DOMtableBody, personas);
-
-        alert("Los datos fueron cargados correctamente.");
-        clear();
+        main();
     } else {
-        alert("Debes introducir los datos solicitados.");
+        Swal.fire({
+            title: "Faltan datos",
+            text: "Por favor, rellena todos los campos.",
+            icon: "warning",
+        });
     }
-
 });
 
+// Para ordenar la tabla cuando se da doble click sobre la cabecera
 const headers = document.querySelectorAll("table thead th");
 headers.forEach(head => {
     head.addEventListener("dblclick", (evnt) => {
         const col = evnt.target.getAttribute("col");
         if (col === "dni") {
-            personas.sort((a, b) => parseInt(a.dni) - parseInt(b.dni));
+            alumnos.sort((a, b) => parseInt(a.dni) - parseInt(b.dni));
         } else if (col === "nombre") {
-            personas.sort((a, b) => a.nombre.localeCompare(b.nombre));
+            alumnos.sort((a, b) => a.nombre.localeCompare(b.nombre));
         } else if (col === "apellidos") {
-            personas.sort((a, b) => a.apellidos.localeCompare(b.apellidos));
+            alumnos.sort((a, b) => a.apellidos.localeCompare(b.apellidos));
         } else if (col === "ciudad") {
-            personas.sort((a, b) => a.ciudad.localeCompare(b.ciudad));
+            alumnos.sort((a, b) => a.ciudad.localeCompare(b.ciudad));
         } else {
-            personas.sort((a, b) => {
+            alumnos.sort((a, b) => {
                 const [diaA, mesA, anioA] = a.fechaAlta.split('/').map(Number);
                 const [diaB, mesB, anioB] = b.fechaAlta.split('/').map(Number);
                 return new Date(anioA, mesA - 1, diaA) - new Date(anioB, mesB - 1, diaB);
             });
         }
 
-        reloadTable(document.getElementById("tabla").tBodies[0], personas);
+        recargarTabla(alumnos);
     });
 });
+
+// El botón del formulario que limpia
+document.getElementById("botonLimpiar").addEventListener("click", () => limpiarFormulario());
+
+
+main();
