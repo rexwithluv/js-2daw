@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+
+    <script src="script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Los estilos han salido de GPT no me escondo -->
+    <style>
+        body {
+            /* Centrar el contenido y darle un fondo translúcido */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Asegura que la altura de la ventana sea 100% */
+            margin: 0;
+            /* Elimina los márgenes predeterminados del body */
+            background-color: #f0f0f0;
+            /* Fondo de la página */
+        }
+
+        .cajaGrande {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Centrado de los elementos dentro de la cajaGrande */
+        }
+
+        /* Caja con fondo translúcido */
+        .caja {
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Fondo negro con opacidad (translúcido) */
+            padding: 20px;
+            border-radius: 10px;
+            /* Bordes redondeados */
+            text-align: center;
+            /* Centra el texto dentro de la caja */
+            color: white;
+            /* Color del texto */
+            max-width: 80%;
+        }
+
+        p {
+            font-size: 22px;
+        }
+
+        button {
+            padding: 10px 22px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 15px;
+            /* Margen superior en los botones */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cajaGrande">
+        <div class="caja">
+            <p>
+                ¡Tía, mira qué pasada este cuello que me hiciste a mano! Es que no me lo puedo creer, está de flipar. O
+                sea,
+                el color es brutal, me queda de maravilla con todo lo que tengo, y encima se siente tan calentito,
+                parece
+                que me han abrazado todo el día. ¿Y la textura? ¡No te digo! Es como si estuviera abrazando un peluchito
+                de
+                lo suave que está.
+
+                Además, tú que sabes cómo soy, siempre con el rollo de las cosas únicas, este cuello es como… exclusivo,
+                tía, porque lo has hecho tú. Qué arte, ¿eh? No sé cómo lo haces, pero en cada puntada se nota el amor y
+                la
+                dedicación. O sea, lo mejor es que lo puedo llevar a cualquier lado, ¿te acuerdas cuando te dije que me
+                moría por algo que me tuviera calentita pero con rollazo? Pues, ya sabes, este cuello es justo lo que
+                necesitaba.
+
+                ¡Gracias, tía, por este detallazo! Te quiero, y si alguna vez necesitas que te eche un cable, ya sabes
+                que
+                me tienes a tope.
+            </p>
+        </div>
+
+        <button type="button" id="botonApagar">Apagar texto</button>
+        <button type="button" id="botonEncender">Encender texto</button>
+    </div>
+</body>
+
+</html>
