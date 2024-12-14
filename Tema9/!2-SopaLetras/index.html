@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+
+    <script src="script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Fuentes de google para una mejor visual -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        body {
+            /* Centrar el contenido y darle un fondo translúcido */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Asegura que la altura de la ventana sea 100% */
+            margin: 0;
+            /* Elimina los márgenes predeterminados del body */
+            background-color: #f0f0f0;
+            /* Fondo de la página */
+        }
+
+        /* Caja con fondo translúcido */
+        .caja {
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Fondo negro con opacidad (translúcido) */
+            padding: 20px;
+            border-radius: 10px;
+            /* Bordes redondeados */
+            text-align: center;
+            /* Centra el texto dentro de la caja */
+            color: white;
+            /* Color del texto */
+            max-width: 90%;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="caja">
+        <form action="#" method="get" id="form">
+            <h3>Dame un número y te diré si es o no primo y palíndromo:</h3>
+            <input type="text" name="numero" id="numero"><br>
+            <button type="submit">Comprobar</button>
+        </form>
+
+        <hr>
+
+        <p id="respuesta" hidden>
+            Tu número
+            <span id="primo"></span> es primo y
+            <span id="palindromo"></span> es palíndromo.
+        </p>
+    </div>
+
+</body>
+
+</html>
