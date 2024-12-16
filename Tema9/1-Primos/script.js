@@ -1,3 +1,5 @@
+// No fui capaz de manejar la respuesta del servidor y debido a la poca documentación
+// que existe respecto a este hice la función a mano
 function esPrimo(num) {
     if (num < 2) return true;
 
