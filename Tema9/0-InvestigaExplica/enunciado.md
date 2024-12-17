@@ -16,3 +16,45 @@
 
 - Iteración por los elementos
   - Resaltar con fondo amarillo todos los párrafos que tienen menos de 100 caracteres.
+
+- Animaciones
+
+- Crea dos botones:
+  - Mostrar
+  - Ocultar
+
+Debajo añade un bloque con 8-10 imágenes pequeñas (80-150px) las cuales al
+pulsar sobre mostrar apareceran una tras otra con un delay de 1 segundo.
+
+Si pulsamos sobre el botón de ocultar quedarán con muy poca opacidad (0.1) que
+se perciban que existen pero además se tiene que notar que se ocultaron.
+
+Al pulsar sobre una imagen concreta, esta se ocultará igualmente con una
+opacidad sobre 0.1 en escala de 1 (un 10% de opacidad).
+
+- Validar Formulario
+
+Valida los siguientes campos:
+
+- DNI
+- Nombre
+- Edad
+- Número de hijos
+- Teléfono
+- Email
+- Página WEB
+- Contraseña
+
+Solución1 - sin plugin JQuery
+Solución2 - con plugin JQuery
+NOTA: JQuery-Validate <https://jqueryvalidation.org/>
+
+- Tablas
+
+Crea una tabla de 10 filas y 3 columnas.
+
+Cuando el ratón pase por cada una de las filas, esta será remarcada cambiando el color de fondo hasta que sacamos el ratón de ella.
+
+Al hacer click en una de las celdas pedirá mediante una ventana "prompt()" que introduzcamos el valor para que sea almacenado en ella.
+
+En el caso de ya tener algún valor, este será reemplazado por el nuevo valor.
